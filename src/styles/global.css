@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body-lg);
+  background-color: var(--background);
+  color: var(--on-background);
+  line-height: var(--font-body-lg-line-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline-lg);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--on-surface);
+}
+
+h1 {
+  font-size: var(--font-headline-xl-size);
+  font-weight: var(--font-headline-xl-weight);
+  line-height: var(--font-headline-xl-line-height);
+  letter-spacing: var(--font-headline-xl-letter-spacing);
+}
+
+h2 {
+  font-size: var(--font-headline-lg-size);
+  font-weight: var(--font-headline-lg-weight);
+  line-height: var(--font-headline-lg-line-height);
+  letter-spacing: var(--font-headline-lg-letter-spacing);
+}
+
+h3 {
+  font-size: var(--font-headline-md-size);
+  font-weight: var(--font-headline-md-weight);
+  line-height: var(--font-headline-md-line-height);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--tertiary);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-gutter);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+}

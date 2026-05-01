@@ -1,0 +1,76 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
+];
+---
+<header class="navbar">
+  <div class="container nav-container">
+    <a href={import.meta.env.BASE_URL + "/"} class="logo">
+      <span class="logo-mark">&lt;/&gt;</span> CCLABS
+    </a>
+    <nav class="nav-links">
+      {links.map(link => (
+        <a href={import.meta.env.BASE_URL + link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+    <div class="nav-cta">
+      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    background-color: var(--surface);
+    border-bottom: 4px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  .logo {
+    font-family: var(--font-headline-md);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--on-surface);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  .logo-mark {
+    background-color: var(--primary-container);
+    color: #000;
+    padding: 4px 8px;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px 0px #000;
+    font-family: var(--font-label-mono);
+  }
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+  .nav-link {
+    font-family: var(--font-label-mono);
+    font-weight: 500;
+    color: var(--on-surface);
+    text-transform: uppercase;
+  }
+  .nav-link:hover {
+    color: var(--tertiary);
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>

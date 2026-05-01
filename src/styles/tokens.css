@@ -1,0 +1,101 @@
+/*
+  Design tokens extracted from Stitch
+  Project: CodingCup Labs Neobrutalist Website
+*/
+:root {
+  /* Colors */
+  --surface: #fff9e9;
+  --surface-dim: #e0dac7;
+  --surface-bright: #fff9e9;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #faf3df;
+  --surface-container: #f4eeda;
+  --surface-container-high: #eee8d4;
+  --surface-container-highest: #e8e2cf;
+  --on-surface: #1e1c10;
+  --on-surface-variant: #4b4731;
+  --inverse-surface: #333123;
+  --inverse-on-surface: #f7f1dd;
+  --outline: #7c775f;
+  --outline-variant: #cdc7aa;
+  --surface-tint: #6a5f00;
+  --primary: #6a5f00;
+  --on-primary: #ffffff;
+  --primary-container: #ffe600;
+  --on-primary-container: #726600;
+  --inverse-primary: #dec800;
+  --secondary: #006e27;
+  --on-secondary: #ffffff;
+  --secondary-container: #00fe66;
+  --on-secondary-container: #007128;
+  --tertiary: #124af0;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #e0e3ff;
+  --on-tertiary-container: #2252f7;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --primary-fixed: #fde400;
+  --primary-fixed-dim: #dec800;
+  --on-primary-fixed: #201c00;
+  --on-primary-fixed-variant: #504700;
+  --secondary-fixed: #6bff83;
+  --secondary-fixed-dim: #00e55b;
+  --on-secondary-fixed: #002107;
+  --on-secondary-fixed-variant: #00531b;
+  --tertiary-fixed: #dde1ff;
+  --tertiary-fixed-dim: #b8c3ff;
+  --on-tertiary-fixed: #001356;
+  --on-tertiary-fixed-variant: #0035be;
+  --background: #fff9e9;
+  --on-background: #1e1c10;
+  --surface-variant: #e8e2cf;
+
+  /* Typography */
+  --font-headline-xl: "Space Grotesk", sans-serif;
+  --font-headline-xl-size: 64px;
+  --font-headline-xl-weight: 700;
+  --font-headline-xl-line-height: 1.1;
+  --font-headline-xl-letter-spacing: -0.02em;
+
+  --font-headline-lg: "Space Grotesk", sans-serif;
+  --font-headline-lg-size: 48px;
+  --font-headline-lg-weight: 700;
+  --font-headline-lg-line-height: 1.1;
+  --font-headline-lg-letter-spacing: -0.01em;
+
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-headline-md-size: 32px;
+  --font-headline-md-weight: 700;
+  --font-headline-md-line-height: 1.2;
+
+  --font-body-lg: "Inter", sans-serif;
+  --font-body-lg-size: 18px;
+  --font-body-lg-weight: 400;
+  --font-body-lg-line-height: 1.6;
+
+  --font-body-md: "Inter", sans-serif;
+  --font-body-md-size: 16px;
+  --font-body-md-weight: 400;
+  --font-body-md-line-height: 1.6;
+
+  --font-label-mono: "Space Grotesk", sans-serif;
+  --font-label-mono-size: 14px;
+  --font-label-mono-weight: 500;
+  --font-label-mono-line-height: 1.0;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  --spacing-gutter: 24px;
+  --spacing-margin: 32px;
+
+  /* Neobrutalist Hard Shadows */
+  --shadow-hard: 4px 4px 0px 0px #000000;
+  --shadow-hard-lg: 8px 8px 0px 0px #000000;
+}

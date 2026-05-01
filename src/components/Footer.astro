@@ -1,0 +1,96 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-brand">
+      <a href={import.meta.env.BASE_URL + "/"} class="logo">
+        <span class="logo-mark">&lt;/&gt;</span> CCLABS
+      </a>
+      <p class="footer-desc">Building production-ready software with brutal efficiency.</p>
+    </div>
+    <div class="footer-links">
+      <div class="link-group">
+        <h4>Company</h4>
+        <a href={import.meta.env.BASE_URL + "/about"}>About</a>
+        <a href={import.meta.env.BASE_URL + "/projects"}>Projects</a>
+        <a href={import.meta.env.BASE_URL + "/services"}>Services</a>
+        <a href={import.meta.env.BASE_URL + "/blog"}>Blog</a>
+      </div>
+      <div class="link-group">
+        <h4>Connect</h4>
+        <a href="https://github.com/s-saanvi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={import.meta.env.BASE_URL + "/contact"}>Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {year} CodingCup Labs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--inverse-surface);
+    color: var(--inverse-on-surface);
+    border-top: 4px solid #000;
+    padding-top: var(--spacing-xl);
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+  .footer-brand {
+    max-width: 300px;
+  }
+  .logo {
+    color: var(--inverse-on-surface);
+    font-family: var(--font-headline-md);
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  .logo-mark {
+    background-color: var(--primary-container);
+    color: #000;
+    padding: 4px 8px;
+    border: 2px solid #000;
+    font-family: var(--font-label-mono);
+  }
+  .footer-links {
+    display: flex;
+    gap: var(--spacing-xl);
+  }
+  .link-group h4 {
+    color: var(--inverse-primary);
+    font-family: var(--font-label-mono);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+  }
+  .link-group a {
+    display: block;
+    color: var(--inverse-on-surface);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-body-md);
+  }
+  .link-group a:hover {
+    color: var(--primary-container);
+  }
+  .footer-bottom {
+    border-top: 2px solid var(--outline);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    font-family: var(--font-label-mono);
+    font-size: 14px;
+  }
+</style>

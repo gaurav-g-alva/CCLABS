@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us | CodingCup Labs" description="Learn about the team and mission behind CodingCup Labs.">
+  <section class="section container">
+    <div class="page-header">
+      <h1>CODINGCUP LABS</h1>
+      <p class="subtitle">Founded on the principle that software should be robust, fast, and unapologetic.</p>
+    </div>
+
+    <div class="mission-vision">
+      <div class="card mv-card">
+        <h2>OUR MISSION</h2>
+        <p>To eliminate bloated software. We build clean, high-performance applications that respect the user's time and the client's budget. We believe in strict engineering over trendy abstractions.</p>
+      </div>
+      <div class="card mv-card">
+        <h2>OUR VISION</h2>
+        <p>A web where speed is the default, accessibility is mandatory, and design serves function. We aim to be the standard-bearers for Neobrutalist engineering.</p>
+      </div>
+    </div>
+
+    <div class="values-section mt-xl">
+      <h2>CORE VALUES</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <span class="value-icon">⚡</span>
+          <h3>PERFORMANCE FIRST</h3>
+          <p>If it's not fast, it's broken. We optimize for speed at every layer.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🏗️</span>
+          <h3>STRUCTURAL INTEGRITY</h3>
+          <p>Architecture matters. We build scalable systems that stand the test of time.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🔍</span>
+          <h3>RADICAL TRANSPARENCY</h3>
+          <p>No black boxes. Open communication and clear processes.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🎨</span>
+          <h3>FUNCTIONAL DESIGN</h3>
+          <p>Design must serve the content. We reject decorative fluff.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-section mt-xl">
+      <h2>THE TEAM</h2>
+      <div class="team-grid">
+        <div class="card team-card">
+          <div class="avatar-box">AL</div>
+          <h3 class="team-name">Ada Lovelace</h3>
+          <p class="team-role">Lead Engineer</p>
+          <p class="team-bio">Architecting the impossible with zero runtime errors.</p>
+        </div>
+        <div class="card team-card">
+          <div class="avatar-box">GH</div>
+          <h3 class="team-name">Grace Hopper</h3>
+          <p class="team-role">Systems Architect</p>
+          <p class="team-bio">Ensuring every byte serves a purpose.</p>
+        </div>
+        <div class="card team-card">
+          <div class="avatar-box">AT</div>
+          <h3 class="team-name">Alan Turing</h3>
+          <p class="team-role">Algorithm Specialist</p>
+          <p class="team-bio">Solving complex problems with elegant math.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-section mt-xl">
+      <h2>OUR TIMELINE</h2>
+      <div class="timeline-strip">
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-content card">
+            <h4>Genesis</h4>
+            <p>CodingCup Labs founded in a garage with a single server.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-content card">
+            <h4>First Major Release</h4>
+            <p>Launched Project Alpha, handling 1M+ requests/day.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-content card">
+            <h4>Expansion</h4>
+            <p>Team grew to 15 engineers. Adopted Neobrutalist manifesto.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content card">
+            <h4>Open Source Push</h4>
+            <p>Released three major open-source libraries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-cta mt-xl">
+      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary btn-large">Work With Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+    border-bottom: 4px solid #000;
+  }
+  .subtitle {
+    font-size: var(--font-body-lg-size);
+    color: var(--on-surface-variant);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .mt-xl {
+    margin-top: 120px;
+  }
+
+  .mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+  .mv-card {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+  }
+  .mv-card h2 {
+    color: var(--on-secondary-container);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+  .value-item {
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--primary);
+  }
+  .value-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+  .value-item h3 {
+    font-family: var(--font-label-mono);
+    font-size: 16px;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+  .team-card {
+    text-align: center;
+    align-items: center;
+  }
+  .avatar-box {
+    width: 80px;
+    height: 80px;
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-headline-md);
+    font-size: 32px;
+    border: 2px solid #000;
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-hard);
+  }
+  .team-name {
+    margin-bottom: 4px;
+  }
+  .team-role {
+    font-family: var(--font-label-mono);
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+  }
+  .team-bio {
+    font-size: 14px;
+    color: var(--on-surface-variant);
+  }
+
+  .timeline-strip {
+    display: flex;
+    overflow-x: auto;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0 var(--spacing-xl) 0;
+    margin-top: var(--spacing-lg);
+  }
+  .timeline-item {
+    min-width: 300px;
+  }
+  .timeline-year {
+    font-family: var(--font-headline-md);
+    font-size: 32px;
+    color: var(--outline);
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 4px solid #000;
+    padding-bottom: var(--spacing-sm);
+  }
+  .timeline-content h4 {
+    margin-bottom: var(--spacing-sm);
+  }
+  .timeline-content p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .about-cta {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    border-top: 4px solid #000;
+  }
+  .btn-large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .mission-vision {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
