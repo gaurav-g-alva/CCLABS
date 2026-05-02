@@ -10,8 +10,8 @@
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/s-saanvi/CCLABS.git
-   cd CCLABS
+   git clone https://github.com/s-saanvi/CodingCupLabs.git
+   cd CodingCupLabs
    ```
 2. Install dependencies:
    ```bash
@@ -44,7 +44,7 @@ This site is configured to deploy automatically to GitHub Pages using GitHub Act
 4. Click **Pages** in the left sidebar (under "Code and automation").
 5. Under "Build and deployment", set the **Source** dropdown to **GitHub Actions**.
 6. The deployment will trigger automatically on the next push, or you can trigger it manually via the **Actions** tab.
-7. Once deployed, the site will be live at `https://s-saanvi.github.io/CCLABS/` (or your configured custom domain).
+7. Once deployed, the site will be live at `https://s-saanvi.github.io/CodingCupLabs/` (or your configured custom domain).
 
 ### Custom Domain
 If you want to use a custom domain:
@@ -52,5 +52,5 @@ If you want to use a custom domain:
 2. Add a `CNAME` file to the `/public` directory containing your domain name.
 3. Configure your DNS provider (A records or CNAME).
 4. Update `astro.config.mjs`:
-   - Remove the `base: '/CCLABS'` line.
+   - Remove the `base: '/CodingCupLabs'` line.
    - Update the `site` value to your new custom domain (e.g., `site: 'https://codingcuplabs.com'`).

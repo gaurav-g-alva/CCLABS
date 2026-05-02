@@ -2,7 +2,7 @@
 We use Decap CMS to manage blog content. It provides a visual editor that commits Markdown files directly to the GitHub repository.
 
 ## Accessing the Admin Panel
-Navigate to `https://s-saanvi.github.io/CCLABS/admin/` (or your custom domain equivalent).
+Navigate to `https://s-saanvi.github.io/CodingCupLabs/admin/` (or your custom domain equivalent).
 
 ## OAuth Setup (One-Time)
 Decap CMS needs permission to commit to your GitHub repository. Since GitHub doesn't support implicit OAuth grants for SPAs, we need an OAuth proxy. We recommend using Netlify for this (it's free and doesn't require hosting the site there).
