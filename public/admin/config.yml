@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: s-saanvi/CCLABS
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title",       name: "title",       widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Published",   name: "pubDate",     widget: "datetime" }
+      - { label: "Updated",     name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Author",      name: "author",      widget: "string", default: "CodingCup Labs" }
+      - { label: "Cover Image", name: "cover",       widget: "image", required: false }
+      - { label: "Tags",        name: "tags",        widget: "list", allow_add: true }
+      - { label: "Draft",       name: "draft",       widget: "boolean", default: false }
+      - { label: "Body",        name: "body",        widget: "markdown" }

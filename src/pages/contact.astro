@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+
+<BaseLayout title="Contact | CodingCup Labs" description="Get in touch with CodingCup Labs.">
+  <section class="section container">
+    <div class="page-header">
+      <h1>CONTACT US</h1>
+      <p class="subtitle">Ready to build something brutal? Reach out.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="availability-badge card">
+          <div class="pulse-dot"></div>
+          <span>Currently open to new projects.</span>
+        </div>
+
+        <div class="info-block mt-lg">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:hello@codingcuplabs.com" class="contact-link">hello@codingcuplabs.com</a></p>
+        </div>
+
+        <div class="info-block mt-lg">
+          <h3>LOCATION</h3>
+          <p>Global (Remote First)<br />HQ: San Francisco, CA</p>
+        </div>
+
+        <div class="info-block mt-lg">
+          <h3>SOCIAL</h3>
+          <SocialLinks />
+        </div>
+      </div>
+
+      <div class="contact-form-container card">
+        <h2>SEND A MESSAGE</h2>
+        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input type="text" id="name" name="name" class="input" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input type="email" id="email" name="email" class="input" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="label">Subject</label>
+            <select id="subject" name="subject" class="select" required>
+              <option value="" disabled selected>Select a subject...</option>
+              <option value="New Project">New Project Inquiry</option>
+              <option value="Consulting">Technical Consulting</option>
+              <option value="Career">Career Opportunities</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="label">Message</label>
+            <textarea id="message" name="message" rows="5" class="textarea" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+    border-bottom: 4px solid #000;
+  }
+  .subtitle {
+    font-size: var(--font-body-lg-size);
+    color: var(--on-surface-variant);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-xl);
+  }
+
+  .availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    font-family: var(--font-label-mono);
+    font-size: 14px;
+    border: 2px solid #000;
+  }
+  .pulse-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 110, 39, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 110, 39, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 110, 39, 0); }
+  }
+
+  .mt-lg {
+    margin-top: var(--spacing-xl);
+  }
+
+  .info-block h3 {
+    font-family: var(--font-label-mono);
+    font-size: 16px;
+    color: var(--outline);
+    margin-bottom: var(--spacing-sm);
+  }
+  .contact-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--on-surface);
+  }
+
+  .contact-form-container {
+    background-color: var(--surface-bright);
+  }
+  .contact-form-container h2 {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid #000;
+    padding-bottom: var(--spacing-sm);
+  }
+  .form-group {
+    margin-bottom: var(--spacing-lg);
+  }
+  .submit-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

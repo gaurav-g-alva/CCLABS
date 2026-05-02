@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  type?: 'primary' | 'secondary' | 'outline';
+  isExternal?: boolean;
+}
+const { href, text, type = 'primary', isExternal = false } = Astro.props;
+const baseClass = "btn";
+const typeClass = `btn--${type}`;
+---
+<a href={href} class={`${baseClass} ${typeClass}`} target={isExternal ? "_blank" : "_self"} rel={isExternal ? "noopener noreferrer" : ""}>
+  {text}
+</a>

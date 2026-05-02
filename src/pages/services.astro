@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  { number: '01', title: 'Web Development', description: 'High-performance static and dynamic web applications. We build fast, accessible, and scalable platforms.', icon: '🌐' },
+  { number: '02', title: 'Mobile Apps', description: 'Cross-platform mobile experiences that feel native. Built for speed and reliability offline.', icon: '📱' },
+  { number: '03', title: 'UI/UX Design', description: 'Systematic, brutalist, and conversion-focused design. We prioritize clarity over decoration.', icon: '🎨' },
+  { number: '04', title: 'API & Backend', description: 'Scalable infrastructure and robust API development. Systems designed to handle massive throughput.', icon: '⚙️' },
+  { number: '05', title: 'Technical Consulting', description: 'Architecture reviews and strategic technical guidance for scaling startups.', icon: '💡' },
+  { number: '06', title: 'Open Source', description: 'Contributing to and maintaining the tools that power the modern web ecosystem.', icon: '🔓' }
+];
+
+const processSteps = [
+  { title: 'DISCOVER', desc: 'Requirements gathering and architectural planning.' },
+  { title: 'DESIGN', desc: 'Wireframing, brutalist UI design, and prototyping.' },
+  { title: 'BUILD', desc: 'Iterative development with strict performance budgets.' },
+  { title: 'SHIP', desc: 'Deployment, monitoring, and handoff.' }
+];
+---
+
+<BaseLayout title="Services | CodingCup Labs" description="Our engineering and design services.">
+  <section class="section container">
+    <div class="page-header">
+      <h1>WHAT WE DO</h1>
+      <p class="subtitle">End-to-end software engineering and brutalist interface design.</p>
+    </div>
+
+    <div class="services-list">
+      {services.map(service => (
+        <div class="service-row">
+          <div class="service-num-col">
+            <span class="big-num">{service.number}</span>
+          </div>
+          <div class="service-content-col card">
+            <div class="service-header">
+              <h2>{service.title}</h2>
+              <span class="icon">{service.icon}</span>
+            </div>
+            <p>{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="process-section mt-xl">
+      <h2>OUR PROCESS</h2>
+      <div class="process-flow">
+        {processSteps.map((step, index) => (
+          <div class="process-step">
+            <div class="step-marker card">{index + 1}</div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.desc}</p>
+            {index < processSteps.length - 1 && <div class="step-connector"></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner section">
+    <div class="container cta-container">
+      <h2>READY TO START?</h2>
+      <p>Contact us to discuss your project requirements.</p>
+      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary btn-large mt-md">Contact Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+    border-bottom: 4px solid #000;
+  }
+  .subtitle {
+    font-size: var(--font-body-lg-size);
+    color: var(--on-surface-variant);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  .service-row {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: stretch;
+  }
+  .service-num-col {
+    width: 120px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 4px solid #000;
+    padding-right: var(--spacing-lg);
+  }
+  .big-num {
+    font-family: var(--font-headline-xl);
+    font-size: 80px;
+    color: var(--outline-variant);
+    line-height: 1;
+  }
+  .service-content-col {
+    flex-grow: 1;
+    background-color: var(--surface-bright);
+  }
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+  .icon {
+    font-size: 40px;
+  }
+
+  .mt-xl {
+    margin-top: 120px;
+  }
+  .mt-md {
+    margin-top: var(--spacing-md);
+  }
+
+  .process-flow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+    position: relative;
+  }
+  .process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 var(--spacing-sm);
+  }
+  .step-marker {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-headline-md);
+    font-size: 24px;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    z-index: 2;
+    position: relative;
+  }
+  .step-connector {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    z-index: 1;
+  }
+  .step-title {
+    font-family: var(--font-label-mono);
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--on-surface-variant);
+  }
+
+  .cta-banner {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border-top: 4px solid #000;
+    text-align: center;
+    padding: 120px 0;
+    margin-top: var(--spacing-xl);
+  }
+  .cta-banner h2, .cta-banner p {
+    color: var(--on-primary);
+  }
+  .btn-large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .service-row {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .service-num-col {
+      width: 100%;
+      border-right: none;
+      border-bottom: 4px solid #000;
+      padding-right: 0;
+      padding-bottom: var(--spacing-md);
+      justify-content: flex-start;
+    }
+    .process-flow {
+      flex-direction: column;
+      gap: var(--spacing-xl);
+    }
+    .step-connector {
+      top: 100%;
+      left: 50%;
+      width: 4px;
+      height: var(--spacing-xl);
+      transform: translateX(-50%);
+    }
+  }
+</style>

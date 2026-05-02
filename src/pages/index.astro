@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+
+const services = [
+  { number: '01', title: 'Web Development', description: 'High-performance static and dynamic web applications.', icon: '🌐' },
+  { number: '02', title: 'Mobile Apps', description: 'Cross-platform mobile experiences that feel native.', icon: '📱' },
+  { number: '03', title: 'UI/UX Design', description: 'Systematic, brutalist, and conversion-focused design.', icon: '🎨' },
+  { number: '04', title: 'API & Backend', description: 'Scalable infrastructure and robust API development.', icon: '⚙️' },
+  { number: '05', title: 'Technical Consulting', description: 'Architecture reviews and strategic technical guidance.', icon: '💡' },
+  { number: '06', title: 'Open Source', description: 'Contributing to the tools that power the modern web.', icon: '🔓' }
+];
+
+const projects = [
+  { title: 'Project Alpha', description: 'A massive scale data processing pipeline.', tags: ['React', 'Node.js', 'AWS'], link: '#' },
+  { title: 'Beta App', description: 'A mobile application for field engineers.', tags: ['React Native', 'GraphQL'], link: '#' },
+  { title: 'Gamma Dashboard', description: 'Real-time analytics and monitoring dashboard.', tags: ['Vue.js', 'Firebase'], link: '#' }
+];
+---
+
+<BaseLayout title="CodingCup Labs | High-Performance Engineering">
+  <HeroSection
+    headline="BUILDING SOFTWARE WITH BRUTAL EFFICIENCY."
+    subheadline="We design and develop high-performance web and mobile applications for technical founders."
+    primaryCtaText="Start a Project"
+    primaryCtaLink={import.meta.env.BASE_URL + "/contact"}
+    secondaryCtaText="View Our Work"
+    secondaryCtaLink={import.meta.env.BASE_URL + "/projects"}
+  />
+
+  <section class="marquee">
+    <div class="marquee-content">
+      <span>REACT</span><span>•</span>
+      <span>ASTRO</span><span>•</span>
+      <span>NODE.JS</span><span>•</span>
+      <span>TYPESCRIPT</span><span>•</span>
+      <span>GRAPHQL</span><span>•</span>
+      <span>AWS</span><span>•</span>
+      <span>REACT</span><span>•</span>
+      <span>ASTRO</span><span>•</span>
+      <span>NODE.JS</span><span>•</span>
+      <span>TYPESCRIPT</span><span>•</span>
+      <span>GRAPHQL</span><span>•</span>
+      <span>AWS</span>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="about-teaser">
+      <div class="about-content">
+        <h2>WE ARE CODINGCUP LABS</h2>
+        <p>A collective of engineers and designers building tools for the next generation of the web. We believe in raw performance, strict logic, and uncompromising design.</p>
+      </div>
+      <div class="about-action">
+        <a href={import.meta.env.BASE_URL + "/about"} class="btn btn--outline">Learn More About Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container bg-surface-dim">
+    <h2>OUR SERVICES</h2>
+    <div class="services-grid">
+      {services.map(service => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>FEATURED PROJECTS</h2>
+    <div class="projects-grid">
+      {projects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+    <div class="view-all-container">
+      <a href={import.meta.env.BASE_URL + "/projects"} class="btn btn--outline">View All Projects</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>LATEST WRITING</h2>
+    <div class="blog-grid">
+      {sortedPosts.map(post => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          author={post.data.author}
+          tags={post.data.tags}
+          slug={post.slug}
+          cover={post.data.cover}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-banner section">
+    <div class="container cta-container">
+      <h2>READY TO BUILD SOMETHING GREAT?</h2>
+      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary btn-large">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .marquee {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    padding: var(--spacing-sm) 0;
+    overflow: hidden;
+    border-bottom: 4px solid #000;
+    white-space: nowrap;
+    font-family: var(--font-headline-md);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-content span {
+    margin: 0 var(--spacing-md);
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .about-teaser {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    background-color: var(--primary-container);
+    padding: var(--spacing-xl);
+    border: 4px solid #000;
+    box-shadow: var(--shadow-hard-lg);
+  }
+  .about-content h2 {
+    color: var(--on-primary-container);
+  }
+  .about-content p {
+    font-size: var(--font-body-lg-size);
+    margin: 0;
+  }
+  .about-action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .bg-surface-dim {
+    background-color: var(--surface-dim);
+    border: 4px solid #000;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .view-all-container {
+    text-align: center;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .cta-banner {
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
+    border-top: 4px solid #000;
+    text-align: center;
+    padding: 120px 0;
+  }
+  .cta-banner h2 {
+    color: var(--on-tertiary);
+    margin-bottom: var(--spacing-xl);
+  }
+  .cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .btn-large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .about-teaser {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .about-action {
+      justify-content: center;
+    }
+  }
+</style>

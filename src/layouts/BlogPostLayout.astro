@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TagPill from '../components/TagPill.astro';
+
+const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${frontmatter.title} | CodingCup Labs`} description={frontmatter.description}>
+  <article class="blog-post section container">
+    <div class="post-header">
+      <a href={import.meta.env.BASE_URL + "/blog"} class="back-link">← Back to Blog</a>
+      <h1>{frontmatter.title}</h1>
+      <div class="meta">
+        <span class="date">{formattedDate}</span>
+        <span class="author">by {frontmatter.author}</span>
+      </div>
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="tags">
+          {frontmatter.tags.map((tag: string) => (
+            <TagPill tag={tag} />
+          ))}
+        </div>
+      )}
+      {frontmatter.cover && (
+        <img src={import.meta.env.BASE_URL + frontmatter.cover} alt={`Cover for ${frontmatter.title}`} class="cover-image" />
+      )}
+    </div>
+    <div class="post-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .post-header {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 4px solid #000;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-label-mono);
+    font-weight: bold;
+    color: var(--on-surface);
+  }
+  .meta {
+    font-family: var(--font-label-mono);
+    color: var(--on-surface-variant);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-md);
+  }
+  .tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+  }
+  .cover-image {
+    width: 100%;
+    border: 4px solid #000;
+    box-shadow: var(--shadow-hard);
+    margin-top: var(--spacing-lg);
+  }
+  .post-content :global(h2) {
+    margin-top: var(--spacing-xl);
+  }
+  .post-content :global(p) {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-body-lg-size);
+  }
+  .post-content :global(pre) {
+    background-color: var(--surface-dim);
+    border: 2px solid #000;
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    margin-bottom: var(--spacing-lg);
+  }
+  .post-content :global(code) {
+    font-family: var(--font-label-mono);
+    background-color: var(--surface-dim);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  .post-content :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  .post-content :global(blockquote) {
+    border-left: 4px solid var(--primary);
+    margin: 0;
+    padding-left: var(--spacing-md);
+    font-style: italic;
+    color: var(--on-surface-variant);
+  }
+</style>
