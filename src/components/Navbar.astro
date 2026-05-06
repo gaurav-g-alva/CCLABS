@@ -1,6 +1,5 @@
 ---
-import { getBaseUrl } from '../utils';
-const baseUrl = getBaseUrl();
+
 
 const links = [
   { href: "/", label: "Home" },
@@ -12,16 +11,16 @@ const links = [
 ---
 <header class="navbar">
   <div class="container nav-container">
-    <a href={`${baseUrl}/`} class="logo">
+    <a href="/" class="logo">
       <span class="logo-mark">&lt;/&gt;</span> CodingCup Labs
     </a>
     <nav class="nav-links">
       {links.map(link => (
-        <a href={`${baseUrl}${link.href}`} class="nav-link">{link.label}</a>
+        <a href={link.href} class="nav-link">{link.label}</a>
       ))}
     </nav>
     <div class="nav-cta">
-      <a href={`${baseUrl}/contact`} class="btn btn--primary">Contact Us</a>
+      <a href="/contact" class="btn btn--primary">Contact Us</a>
     </div>
   </div>
 </header>

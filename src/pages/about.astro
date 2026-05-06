@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getBaseUrl } from '../utils';
 
-const baseUrl = getBaseUrl();
 ---
 
 <BaseLayout title="About Us | CodingCup Labs" description="Learn about the team and mission behind CodingCup Labs.">
@@ -108,7 +106,7 @@ const baseUrl = getBaseUrl();
     </div>
 
     <div class="about-cta mt-xl">
-      <a href={`${baseUrl}/contact`} class="btn btn--primary btn-large">Work With Us</a>
+      <a href={`/contact`} class="btn btn--primary btn-large">Work With Us</a>
     </div>
   </section>
 </BaseLayout>

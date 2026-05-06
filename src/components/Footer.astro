@@ -1,13 +1,12 @@
 ---
-import { getBaseUrl } from "../utils";
-const baseUrl = getBaseUrl();
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
   <div class="container footer-container">
     <div class="footer-brand">
-      <a href={`${baseUrl}/`} class="logo">
+      <a href="/" class="logo">
         <span class="logo-mark">&lt;/&gt;</span> CodingCup Labs
       </a>
       <p class="footer-desc">
@@ -17,10 +16,10 @@ const year = new Date().getFullYear();
     <div class="footer-links">
       <div class="link-group">
         <h4>Company</h4>
-        <a href={`${baseUrl}/about`}>About</a>
-        <a href={`${baseUrl}/projects`}>Projects</a>
-        <a href={`${baseUrl}/services`}>Services</a>
-        <a href={`${baseUrl}/blog`}>Blog</a>
+        <a href={`/about`}>About</a>
+        <a href={`/projects`}>Projects</a>
+        <a href={`/services`}>Services</a>
+        <a href={`/blog`}>Blog</a>
       </div>
       <div class="link-group">
         <h4>Connect</h4>
@@ -35,7 +34,7 @@ const year = new Date().getFullYear();
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
           >LinkedIn</a
         >
-        <a href={`${baseUrl}/contact`}>Contact</a>
+        <a href={`/contact`}>Contact</a>
       </div>
     </div>
   </div>
