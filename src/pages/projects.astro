@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+// import { imageConfig } from 'astro:assets';
 
 
 const projects = [
-  { title: 'Project Alpha', description: 'A massive scale data processing pipeline handling terabytes of information daily.', tags: ['React', 'Node.js', 'AWS'], link: '#', category: 'Web' },
-  { title: 'Beta App', description: 'A mobile application for field engineers to sync data offline.', tags: ['React Native', 'GraphQL'], link: '#', category: 'Mobile' },
+  { 
+    title: 'Coding Cup Labs', 
+    description: 'CodingCup Labs is a modern software development and technology platform focused on building innovative, scalable, and production-ready digital solutions.', 
+    tags: ['Astro', 'Node.js', ], 
+    link: 'https://www.codingcuplabs.in',
+    image: '/projects/image.png', 
+    category: 'Web' },
+
+  { title: 'Gaurav Portfolio', description: 'A personal developer interactive Portfolio.', tags: ['Node.js', 'Astro'], link: 'https://www.gauravgalva.in', category: 'Web', image:'/projects/ga.png'},
   { title: 'Gamma Dashboard', description: 'Real-time analytics and monitoring dashboard for enterprise clients.', tags: ['Vue.js', 'Firebase'], link: '#', category: 'Web' },
   { title: 'Delta CLI', description: 'Command line tool for rapid project scaffolding and deployment.', tags: ['Go', 'Docker'], link: '#', category: 'OSS' },
   { title: 'Epsilon Design System', description: 'A comprehensive brutalist UI kit for modern web applications.', tags: ['Figma', 'CSS'], link: '#', category: 'Design' },
@@ -35,6 +43,7 @@ const tags = ['All', 'Web', 'Mobile', 'OSS', 'Design'];
           description={project.description}
           tags={project.tags}
           link={project.link}
+          image={project.image}
         />
       ))}
     </div>
