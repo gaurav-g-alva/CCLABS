@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://gaurav-g-alva.github.io',
-  base: '/',
+  //base: '/',
   output: 'static',
   integrations: [mdx(), sitemap()],
 });
