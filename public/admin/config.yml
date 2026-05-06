@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: gaurav-g-alva/CodingCupLabs
+  repo: gaurav-g-alva/CCLABS
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
